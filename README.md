@@ -68,9 +68,59 @@ This project combines:
 - Overlap: 200
 
 ## 🛠️ Setup Instructions
-- 1️⃣ Clone Repository
+## 1️⃣ Clone Repository
 
   ```bash
   git clone https://github.com/Omkar-Gadade/RAG-Expert-Assistant-for-InsureLLM-Company.git
   cd insurellm-rag
    ```
+## 2️⃣ Create Virtual Environment
+
+ - Using uv package manager (recommended):
+```bash
+c\Users\insurellm-rag > uv sync
+```
+
+## 3️⃣ Add Environment Variables
+
+ - Create a .env file:
+```bash
+OPENAI_API_KEY=your_api_key_here
+```
+
+## 4️⃣ Run Data Ingestion
+```bash
+uv run implementation/ingest.py
+```
+
+This will:
+ - Create embeddings
+ - Store vectors in vector_db/
+
+## 5️⃣ Launch Application
+```bash
+uv run app.py
+```
+App will open in your browser 🚀
+
+## 💬 Example Workflow
+
+- User asks:
+
+  - "What services does InsureLLM provide?"
+
+- System:
+  - Retrieves relevant docs
+  - Sends context + query to LLM
+- Output:
+  - ✅ Final answer
+  - 📚 Supporting context
+ 
+## 📌 Important Notes
+  - If you update documents → re-run ingestion
+  - Vector DB is persistent in vector_db/
+  - Retrieval uses k=10 documents
+
+## 📄 License
+
+  -  This project is licensed under the MIT License.
